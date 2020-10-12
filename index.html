@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Numerical derivation</title>
+</head>
+<body>
+  <form class="content__input" onsubmit="manageDerivative()" action="#"  id="myForm">
+    <h1>Derivación numérica</h1>
+    <h3>Ingrese los valores solicitadas</h3>
+    <div class="content__table">
+      <div id="table_func">
+      </div>
+      <div id="content_info">
+      </div>
+    </div>
+    <p class="note">
+      Los campos con <span class="input_required">*</span> indican que el mismo es requerido.
+    </p>
+    <div class="content__action">
+      <button type="submit" class="btn btn__submit">Calcular</button>
+      <button class="btn btn__clear" type="reset" onclick="clearForm()" >Limpiar</button>
+    </div>
+  </form>
+
+  <div class="content__result none" id="content__result">
+    <h2>Resultados</h2>
+    <ul id="list_result">
+    </ul>
+  </div>
+  <script src="./function.js"></script>
+</body>
+</html>
