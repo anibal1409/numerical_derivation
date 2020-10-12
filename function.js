@@ -1,4 +1,4 @@
-
+window.location.href = "index.html?#";
 const table = document.querySelector('#table_func');
 const contentResult = document.querySelector('#content__result');
 const listResult = document.querySelector('#list_result');
@@ -14,6 +14,18 @@ const MAX_DEVIRATIVE = 3;
 const FORM = [];
 
 let tableCreate = false;
+
+
+function onlyNumber(event, inputId) {
+  console.log(event);
+  let value = false;
+  const inputValue = inputId.value;
+  console.log(!!inputValue, inputValue.includes('.'));
+  if ((event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode === 8 || ((event.keyCode === 110 || event.keyCode === 190) && !!inputValue && !inputValue.includes('.'))) {
+    value = true;
+  }
+  return value;
+}
 
 
 function createRow(text, inputId, content ) {
@@ -34,6 +46,7 @@ function createRow(text, inputId, content ) {
   const input = document.createElement('input');
   input.setAttribute('id', inputId);
   input.setAttribute('required', 'true');
+  input.setAttribute('onkeydown', `return onlyNumber(event, ${inputId})`);
   // input.type = 'number';
   FORM.push(input);
   div2.appendChild(input);
@@ -69,7 +82,7 @@ function createLi(derivative, content) {
 
 // CREAR INPUT DE FUNCION SEGUN PASOS
 for (let i = 0; i < 7 ; i++) {
-  createRow(`X${INDEX_INPUT[i]}`, `${PRE_ID_INPUT_X}${i}`, table);
+  createRow(`f(x${INDEX_INPUT[i]})`, `${PRE_ID_INPUT_X}${i}`, table);
 }
 
 const contentInfo = document.querySelector('#content_info');
